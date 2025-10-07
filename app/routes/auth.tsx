@@ -24,9 +24,9 @@ const Auth = () => {
     },[auth.isAuthenticated, next]);
 
     return (
-        <main className="bg-[url('/images/bg-main-dark.svg')] bg-cover min-h-screen flex items-center justify-center">
-            <div className="gradient-border shadow-lg">
-                <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
+        <main className="bg-[url('/images/bg-main-noise.svg')] bg-cover min-h-screen flex items-center justify-center relative grain">
+            <div className=" shadow-lg relative z-10">
+                <section className="flex flex-col gap-8 bg-black/50 rounded-2xl p-10">
                     <div className="flex flex-col items-center gap-2 text-center">
                         <h1>Welcome</h1>
                         <h2>Let’s get you closer to your next opportunity</h2>

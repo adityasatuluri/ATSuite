@@ -4,7 +4,7 @@ import ScoreCircle from "~/components/ScoreCircle";
 
 const ResumeCard = ({resume: {id, companyName, jobTitle, feedback, imagePath}}: { resume: Resume }) => {
     return (
-        <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
+        <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000 h-full py-6">
             <div className="resume-card-header">
                 <div className="flex flex-col gap-2">
                     <h2 className="!text-white font-bold break-words">
@@ -14,7 +14,7 @@ const ResumeCard = ({resume: {id, companyName, jobTitle, feedback, imagePath}}: 
                         {jobTitle}
                     </h3>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 z-0">
                     <ScoreCircle score={feedback.overallScore}/>
                 </div>
             </div>
@@ -23,7 +23,7 @@ const ResumeCard = ({resume: {id, companyName, jobTitle, feedback, imagePath}}: 
                     <img
                         src={imagePath}
                         alt="resume"
-                        className="w-full h-[350px] max-sm:h-[250px] object-cover object-top"
+                        className="w-full h-[300px] max-sm:h-[200px] object-cover object-top hover:object-bottom transition-all duration-500 ease-in"
                     />
                 </div>
             </div>

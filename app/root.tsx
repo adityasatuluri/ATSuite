@@ -1,5 +1,5 @@
 import {
-    isRouteErrorResponse,
+    isRouteErrorResponse, Link,
     Links,
     Meta,
     Outlet,
@@ -10,7 +10,7 @@ import {
 import type {Route} from "./+types/root";
 import "./app.css";
 import {usePuterStore} from "~/lib/puter";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 export const links: Route.LinksFunction = () => [
     {rel: "preconnect", href: "https://fonts.googleapis.com"},
@@ -60,6 +60,9 @@ export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
     let details = "An unexpected error occurred.";
     let stack: string | undefined;
 
+    let statusCode: string | undefined;
+    let statusMessage: string | undefined;
+
     if (isRouteErrorResponse(error)) {
         message = error.status === 404 ? "404" : "Error";
         details =
@@ -72,14 +75,31 @@ export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
     }
 
     return (
-        <main className="pt-16 p-4 container mx-auto">
-            <h1>{message}</h1>
-            <p>{details}</p>
-            {stack && (
-                <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-            )}
+        // <main className="pt-16 p-4 container mx-auto">
+        //     <h1>{message}</h1>
+        //     <p>{details}</p>
+        //     {stack && (
+        //         <pre className="w-full p-4 overflow-x-auto">
+        //   <code>{stack}</code>
+        // </pre>
+        //     )}
+        // </main>
+        <main className="w-full h-full bg-[url('/images/bg-main-noise.svg')] grain relative">
+            <div
+                className="min-w-screen min-h-screen flex flex-col gap-6 items-center justify-center px-5 relative z-10">
+                <code className="text-8xl font-bold text-gradient">{message}</code>
+                <h2 className="text-center">{details}</h2>
+                {stack ? (
+
+                    <pre className="text-center">
+                            <hr className="w-[35vw] opacity-30 pb-4"/>
+                  <code className="text-center">{stack}</code>
+                </pre>
+                ) : <Link to={'/'} className="primary-button w-sm px-4 py-2 flex justify-center mt-8 fixed-bottom">Go to
+                    Home</Link>
+                }
+
+            </div>
         </main>
     );
 }

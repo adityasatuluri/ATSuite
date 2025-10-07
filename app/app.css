@@ -7,13 +7,15 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     /* 🌙 Enhanced Dark Theme Colors */
-    --color-dark-100: #0d0d0f;
-    --color-dark-200: #1a1a1d;
+    --color-dark-100: #070717;
+    --color-dark-200: #090927;
     --color-dark-300: #2a2a2f;
     --color-dark-400: #3b3b43;
     --color-dark-500: #585b60;
     --color-light-blue-100: #1e25391a;
     --color-light-blue-200: #2a35634d;
+
+    --color-blue-border: #0a1c73;
 
     --color-badge-green: #143d35;
     --color-badge-red: #3b1c1b;
@@ -37,7 +39,7 @@ html, base {
 }
 
 main {
-    @apply min-h-screen pt-10;
+    @apply min-h-screen;
 }
 
 h1 {
@@ -66,15 +68,15 @@ form {
 
 @layer components {
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#C9A0B7] via-[#FFFFFF] to-[#9AA6E6];
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#a0c2c9] via-[#FFFFFF] to-[#9AA6E6];
     }
 
     .gradient-border {
-        @apply bg-gradient-to-b from-light-blue-100 to-[var(--color-dark-500)] p-4 rounded-2xl;
+        @apply bg-gradient-to-b from-light-blue-100 to-[var(--color-blue-border)] px-4 pt-4 rounded-2xl;
     }
 
     .primary-button {
-        @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full hover:primary-gradient-hover transition-all;
+        @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full hover:primary-gradient-hover transition-all ease-in-out duration-300;
     }
 
     .resume-nav {
@@ -93,11 +95,11 @@ form {
     }
 
     .auth-button {
-        @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white hover:primary-gradient-hover;
+        @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white hover:primary-gradient-hover transition-all ease-in-out duration-300;
     }
 
     .main-section {
-        @apply flex flex-col items-center gap-8 pt-12 max-sm:mx-2 mx-15 pb-5;
+        @apply flex flex-col items-center gap-8 lg:pt-12 pt-24 max-sm:mx-2 mx-15 pb-5;
     }
 
     .page-heading {
@@ -109,7 +111,7 @@ form {
     }
 
     .resume-card {
-        @apply flex flex-col gap-8 h-[560px] w-[300px] lg:w-[430px] xl:w-[390px] bg-[var(--color-dark-200)] rounded-2xl p-4 border border-[var(--color-dark-400)];
+        @apply flex flex-col gap-4 h-[560px] w-[300px] lg:w-[430px] xl:w-[390px] bg-[var(--color-dark-200)]/80 rounded-2xl p-4 border border-[var(--color-dark-400)] hover:bg-[var(--color-dark-400)]/30 hover:backdrop-blur-lg;
     }
 
     .resume-card-header {
@@ -121,7 +123,7 @@ form {
     }
 
     .navbar {
-        @apply flex flex-row justify-between items-center bg-[var(--color-dark-100)]/85 backdrop-blur-md rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto border border-[var(--color-dark-400)];
+        @apply lg:flex lg:flex-row lg:gap-0 md:flex md:flex-row md:gap-0 flex flex-col gap-4 w-[80vw] rounded-4xl justify-between items-center z-1000 bg-[var(--color-dark-100)]/60 backdrop-blur-md lg:rounded-full p-4 lg:w-full px-10 max-w-[55vw] mx-auto border border-[var(--color-dark-300)] ;
     }
 
     .score-badge {
@@ -139,7 +141,20 @@ form {
     .uploader-selected-file {
         @apply flex items-center justify-between p-3 bg-[var(--color-dark-300)] rounded-2xl border border-[var(--color-dark-400)];
     }
+
+    .footer {
+        @apply flex lg:flex-row md:flex-row flex-col lg:px-28 md:px-20 py-10 items-center gap-5 justify-between mt-5 bg-[var(--color-dark-200)]/90 backdrop-blur-md;
+    }
+
+    .links {
+        @apply text-white hover:text-[#4d5cff] cursor-pointer
+    }
+
+    .glow {
+        @apply  transition-all ease-in-out duration-300
+    }
 }
+
 
 @utility bg-gradient {
     background: linear-gradient(to bottom, #111318 60%, #2e3250cc);
@@ -158,6 +173,10 @@ form {
     box-shadow: 0px 20px 40px 0px rgba(102, 120, 239, 0.25);
 }
 
+@utility glow-shadow {
+    box-shadow: 0px 10px 20px 0px rgba(206, 212, 255, 0.5), inset 0px 20px 40px 0px rgba(206, 212, 255, 0.1);
+}
+
 @utility primary-gradient-hover {
     background: linear-gradient(to bottom, #717dff, #4957eb);
 }
@@ -174,4 +193,95 @@ form {
     to {
         opacity: 1;
     }
+}
+
+.grain {
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.grain::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+    opacity: 0.05; /* slightly lighter */
+    animation: animateGrain 8s steps(10) infinite;
+    pointer-events: none;
+    z-index: 0; /* 👈 Places grain behind all content */
+    background-blend-mode: screen; /* Ensures it blends with the background */
+}
+
+@keyframes animateGrain {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(-5%, -10%);
+    }
+    20% {
+        transform: translate(-15%, -20%);
+    }
+    30% {
+        transform: translate(-5%, -10%);
+    }
+    40% {
+        transform: translate(-15%, -20%);
+    }
+    50% {
+        transform: translate(-5%, -10%);
+    }
+    60% {
+        transform: translate(-15%, -20%);
+    }
+    70% {
+        transform: translate(-5%, -10%);
+    }
+    80% {
+        transform: translate(-15%, -20%);
+    }
+    90% {
+        transform: translate(-5%, -10%);
+    }
+}
+
+/* Custom Scrollbar*/
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 0px;
+    background: #0d0d0f; /* Dark theme background */
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #0d0d0f, #1a1a1d);
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: inset 0 0 6px rgba(77, 92, 255, 0.4); /* Purple-blue shadow */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4d5cff, #5e43e0); /* Purple to blue gradient */
+    border-radius: 0px 50px 0px 50px;
+    box-shadow: 0 0 8px #0027ff, 0 0 15px #1a3fff inset; /* Blue neon effects */
+    border: 1px solid #6b79ff;
+
+    transition: all 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+    box-shadow: 0 0 12px #4d5cff, 0 0 25px #5e43e0 inset, 0 0 8px #6b79ff;
+    border: 5px solid #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-corner {
+    background: #0d0d0f;
 }
