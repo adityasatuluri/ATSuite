@@ -40,10 +40,11 @@ html, base {
 
 main {
     @apply min-h-screen;
+
 }
 
 h1 {
-    @apply max-sm:text-[3rem] text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+    @apply sm:text-[2rem] text-[2rem] md:text-[3rem] lg:text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
 }
 
 h2 {
@@ -51,15 +52,19 @@ h2 {
 }
 
 label {
-    @apply text-gray-400;
+    @apply text-gray-200;
 }
 
 input {
-    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-[var(--color-dark-300)] text-white border border-[var(--color-dark-400)];
+        @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-[var(--color-dark-500)]/60 backdrop-blur-lg text-white border border-[var(--color-dark-400)];
+}
+
+.input {
+    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-[var(--color-dark-500)]/60 backdrop-blur-lg text-white border border-[var(--color-dark-400)];
 }
 
 textarea {
-    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-[var(--color-dark-300)] text-white border border-[var(--color-dark-400)];
+    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-[var(--color-dark-500)]/50 text-white border border-[var(--color-dark-400)];
 }
 
 form {
@@ -123,7 +128,7 @@ form {
     }
 
     .navbar {
-        @apply lg:flex lg:flex-row lg:gap-0 md:flex md:flex-row md:gap-0 flex flex-col gap-4 w-[80vw] rounded-4xl justify-between items-center z-1000 bg-[var(--color-dark-100)]/60 backdrop-blur-md lg:rounded-full p-4 lg:w-full px-10 max-w-[55vw] mx-auto border border-[var(--color-dark-300)] ;
+        @apply lg:flex lg:flex-row lg:gap-0 md:flex md:flex-row md:gap-0  gap-4 w-[80vw] rounded-4xl justify-between items-center z-1000 bg-[var(--color-dark-100)]/60 backdrop-blur-md lg:rounded-full p-4 lg:w-full px-10 max-w-[75vw] md:max-w-[60vw] lg:max-w-[55vw] mx-auto border border-[var(--color-dark-300)] ;
     }
 
     .score-badge {
@@ -139,7 +144,7 @@ form {
     }
 
     .uploader-selected-file {
-        @apply flex items-center justify-between p-3 bg-[var(--color-dark-300)] rounded-2xl border border-[var(--color-dark-400)];
+        @apply flex items-center justify-between p-3 bg-[var(--color-dark-100)] rounded-2xl border border-[var(--color-dark-400)];
     }
 
     .footer {
