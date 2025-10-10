@@ -17,13 +17,13 @@
 
     --color-blue-border: #0a1c73;
 
-    --color-badge-green: #143d35;
-    --color-badge-red: #3b1c1b;
-    --color-badge-yellow: #3e321c;
+    --color-badge-green: #d7fdd8;
+    --color-badge-red: #ffc3c1;
+    --color-badge-yellow: #ffeeca;
 
-    --color-badge-green-text: #a6f5e3;
-    --color-badge-red-text: #f8b4b3;
-    --color-badge-yellow-text: #f6e0aa;
+    --color-badge-green-text: #0ba300;
+    --color-badge-red-text: #d50500;
+    --color-badge-yellow-text: #c58b00;
 }
 
 html, base {
@@ -84,6 +84,10 @@ form {
         @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full hover:primary-gradient-hover transition-all ease-in-out duration-300;
     }
 
+    .secondary-button {
+        @apply bg-none border-1 border-gray-500 text-white rounded-full px-4 py-2 cursor-pointer w-full hover:primary-gradient-hover transition-all ease-in-out duration-300;
+    }
+
     .resume-nav {
         @apply flex flex-row justify-between items-center p-4 border-b border-[var(--color-dark-400)] bg-[var(--color-dark-200)];
     }
@@ -91,7 +95,7 @@ form {
     .resume-summary {
         @apply flex flex-row items-center justify-center p-4 gap-4;
         .category {
-            @apply flex flex-row gap-2 items-center bg-[var(--color-dark-300)] rounded-2xl p-4 w-full justify-between;
+            @apply flex flex-row gap-2 items-center bg-[var(--color-gray-100)]/70 rounded-2xl p-4 w-full justify-between;
         }
     }
 

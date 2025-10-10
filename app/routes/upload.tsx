@@ -59,8 +59,10 @@ const Upload = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
+
         console.log(data);
-        // navigate(`/resume/${uuid}`);
+
+        navigate(`/resume/${uuid}`);
     }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -87,7 +89,7 @@ const Upload = () => {
 
 
     return (
-        <main className="w-full min-h-screen bg-[url('/images/bg-main-noise.svg')] grain">
+        <main className="w-full min-h-screen bg-[url('/images/bg-main-noise.svg')] grain bg-cover bg-fixed bg-center bg-no-repeat">
             <div className="w-full fixed top-8 left-0 flex items-center justify-center z-[1000]">
                 <Navbar/>
             </div>
