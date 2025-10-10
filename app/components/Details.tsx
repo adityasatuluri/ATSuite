@@ -61,15 +61,15 @@ const CategoryContent = ({
 }) => {
     return (
         <div className="flex flex-col gap-4 items-center w-full">
-            <div className="bg-gray-50 w-full rounded-lg px-5 py-4 grid grid-cols-2 gap-4">
+            <div className="bg-gray-50 w-full rounded-lg px-5 py-4 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4">
                 {tips.map((tip, index) => (
-                    <div className="flex flex-row gap-2 items-center" key={index}>
+                    <div className="flex flex-row gap-2 items-start" key={index}>
                         <img
                             src={
                                 tip.type === "good" ? "/icons/check.svg" : "/icons/warning.svg"
                             }
                             alt="score"
-                            className="size-5"
+                            className="size-5 mt-1"
                         />
                         <p className="text-lg text-gray-500 ">{tip.tip}</p>
                     </div>

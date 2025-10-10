@@ -90,7 +90,7 @@ const Resume = () => {
 
                     {imageUrl && resumeUrl && (
                         <div
-                            className={'animate-in fade-in duration-100 gradient-border max-sm:m-0 h-[90%] max-wxl:h-fit w-fit'}>
+                            className={'animate-in fade-in duration-100 max-sm:m-0 h-[90%] max-wxl:h-fit w-fit'}>
                             <a href={resumeUrl} target={'_blank'} rel={'noopener noreferrer'}>
                                 <img
                                     src={imageUrl}
