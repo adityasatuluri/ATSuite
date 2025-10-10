@@ -67,9 +67,10 @@ export default function Home() {
                             initial={{opacity: 0.8, scale: 0.8}}
                             animate={{opacity: 1, scale: 1}}
                             transition={{duration: 0.3, ease: "easeIn"}}
-                            className="text-gray-300 text-3xl max-sm:text-xl"
+                            className="text-gray-300 text-3xl max-sm:text-xl flex flex-col gap-3"
                         >
                             No resumes found. Upload your first resume to get feedback.
+                            <span className={'text-lg text-gray-400'}>Note: You can only generate around 5 to 6 analysis with this app <a className={'underline'} href={'https://puter.com/settings'} target={'_blank'}>Check usage</a></span>
                         </motion.h2>
                     ) : (
 

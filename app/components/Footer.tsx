@@ -6,7 +6,10 @@ const Footer = () => {
     return (
         <footer
             className="footer bg-[var(--color-dark-200)]/60 border-t-1 border-dark-500/60 backdrop-blur-sm text-white relative z-10">
-            <p>&copy; Copyright {new Date().getFullYear()} Aditya Satuluri</p>
+            <div className="flex flex-row gap-4">
+                <p>&copy; Copyright {new Date().getFullYear()} Aditya Satuluri</p>
+                <a className={'underline'} href={'https://puter.com/settings'} target={'_blank'}>Check usage</a>
+            </div>
             <div className="flex flex-row gap-4">
                 <a
                     className="links"

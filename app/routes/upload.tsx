@@ -60,7 +60,7 @@ const Upload = () => {
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
 
-        console.log(data);
+        console.log("DATA: \n", data);
 
         navigate(`/resume/${uuid}`);
     }
@@ -84,6 +84,8 @@ const Upload = () => {
             console.error("Error analyzing resume:", error);
             setStatusText("Something went wrong during analysis.");
             setIsProcessing(false);
+
+            navigate('/');
         }
     };
 
