@@ -7,6 +7,7 @@ import Details from "~/components/Details";
 import Navbar from "~/components/Navbar";
 import Homenav from "~/components/Homenav";
 import ATS from "~/components/ATS";
+import {IoChevronBack} from "react-icons/io5";
 
 export function meta() {
     return [
@@ -68,8 +69,17 @@ const Resume = () => {
     return (
         <main className="min-h-screen bg-[url('/images/bg-main-noise.svg')] bg-cover bg-fixed bg-center bg-no-repeat">
 
+            {isMobile2 &&
+                <nav className="resume-nav">
+                    <Link to="/" className="back-button">
+                        {/*<img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5"/>*/}
+                        <IoChevronBack className={'h-4'}/>
+                        <span className="text-white text-sm font-semibold">Back to Homepage</span>
+                    </Link>
+                </nav>
+            }
 
-        <div className={'flex flex-row w-full max-lg:flex-col-reverse justify-between '}>
+            <div className={'flex flex-row w-full max-lg:flex-col-reverse justify-between '}>
                 <section
                     className={"feedback-section   bg-cover h-[100vh] sticky top-0 items-center justify-center"}>
                     {!isMobile2 &&
