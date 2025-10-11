@@ -71,6 +71,8 @@ Feel free to open issues or submit pull requests.
 ## ✨ Acknowledgments
 
 - [Puter](https://puter.com/) for AI and Cloud infrastructure  
-- [React](https://react.dev/) and [Zustand](https://zustand-demo.pmnd.rs/) for frontend architecture  
+- [React](https://react.dev/) and [Zustand](https://zustand-demo.pmnd.rs/) for frontend architecture
+- [JSMastery](https://www.youtube.com/c/JavaScriptMastery) for tutotial
 - All open-source contributors 💙
+
 
