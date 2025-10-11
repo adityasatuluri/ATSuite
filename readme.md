@@ -37,9 +37,8 @@
 
 1. **Sign In** – User authenticates through Puter.  
 2. **Upload Resume** – The resume (PDF) is uploaded securely.  
-3. **Processing** – The file is converted to image format for better AI analysis.  
-4. **AI Feedback** – Puter AI analyzes the content and returns structured feedback.  
-5. **View Results** – Users see their ATS score, keyword match rate, and suggestions for improvement.
+4. **AI Processing & Feedback** – Puter AI analyzes the content and returns structured feedback.  
+5. **View Results** – Users see their ATS score, and suggestions for improvement.
 
 ---
 
@@ -74,3 +73,4 @@ Feel free to open issues or submit pull requests.
 - [Puter](https://puter.com/) for AI and Cloud infrastructure  
 - [React](https://react.dev/) and [Zustand](https://zustand-demo.pmnd.rs/) for frontend architecture  
 - All open-source contributors 💙
+
